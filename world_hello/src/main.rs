@@ -1,9 +1,13 @@
 fn main() {
-    let mut s = String::from("hello, ");
+    let mut s = String::from("hello world");
 
-    // 填写空白处，让代码工作
-    let p = &mut s;
-    
-    p.push_str("world");
-    println!("{}",*p)
+    let tmp_s = s.clone();
+    let word = first_word(&tmp_s);
+
+    s.clear(); // error!
+
+    println!("the first word is: {}", word);
+}
+fn first_word(s: &String) -> &str {
+    &s[..4]
 }
